@@ -1,0 +1,59 @@
+<html>
+<head>
+<style>
+h1 {text-align: center; color:832400; font-family:serif;background-color:beige;}
+h2 {text-align: center; color:black; font-family:serif;background-color:beige;}
+p {text-align: center;color:red; font-family:serif;background-color:beige;}
+div {text-align: center;color:red; font-family:serif;background-color:beige;}
+</style>
+<title>Guitar Notes Calculator</title> 
+</head>
+<body> 
+<h1>Guitar Notes Calculator</h1>
+<h2>Brought to you by Rajarshi Rit</h2>
+<form style="font-family:serif; text-align: center;font-size:30; background-color:tomato;" onsubmit="return false;">  
+<br>
+<label for="stringno">String Number:</label>
+<input style="text-align: center;color:red; font-size:30; font-family:serif;background-color:beige;"  type="number" id="stringno" name="stringno" min="1" max="6" step="1">
+<br>
+<br>
+<label for="fretno">Fret Number:</label>
+<input style="text-align: center;color:red; font-size:30; font-family:serif;background-color:beige;"  type="number" id="fretno" name="fretno" min="0" max="12" step="1">
+<br>
+<br>
+<button style="font-family:serif; font-size:27;text-align: center;color:red; background-color:beige;" onclick="myFunction()">   Calculate   </button>
+<br>
+<br>
+</form>
+
+<script>
+function myFunction() {
+     var stringno =  document.getElementById("stringno") ; 
+     var fretno =  document.getElementById("fretno") ; 
+     var reverse = 6 - stringno.value ;
+     var interval = 5  *  reverse;
+         if ( stringno.value  <= 2 ) { var shift = 0 + interval }
+         else if (  stringno.value  > 2 ) { var shift = 1 + interval }; 
+     var fretnob = +0 + +fretno.value;
+     var absolute = fretnob + shift ; 
+         if ( absolute  <= 12 ) { var note = absolute }
+         else if ( absolute >12 ) { var note = absolute % 12 };
+                 if (note ==0) {var name= "DSharp" }
+                else if (note ==1) {var name= "ENatural" }  
+                else if (note ==2) {var name= "FNatural" } 
+                else if (note ==3) {var name= "FSharp" } 
+                else if (note == 4) {var name= "GNaturaL" } 
+                else if (note ==5) {var name = "GSharp" }
+                else if (note ==6) {var name = "ANatural" }
+                else if (note ==7) {var name = "ASharp" }
+                else if (note ==8) {var name= "BNatural" }
+                else if (note==9)  {var name= "CNatural" } 
+                else if (note==10)  {var name= "Csharp" } 
+                else if (note==11) {var name= "DNatural" } 
+                else if (note==12) {var name= "DSharp" };
+document.getElementById("demo").innerHTML = name ;
+} 
+</script>
+<p style="font-family:serif; font-size:50; font-color:red;text-align: center;" id="demo">  </p>
+</body>
+</html>
